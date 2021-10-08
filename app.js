@@ -7,8 +7,11 @@ const app = express();
 const passport =  require('passport')
 
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/test', {useNewUrlParser: true});
-
+// mongoose.connect('mongodb://localhost/test', {useNewUrlParser: true});
+mongoose.connect(pocess.env.MONGODB_URI ||'mongodb://localhost/test',{
+	useNewUrlParser:true,
+	useUnifiedTopology:true
+})
 const methodOverride = require('method-override')
 const flash = require('express-flash')
 app.use(flash());
