@@ -8,19 +8,19 @@ exports.register_post  =  async function (req,res) {
 
 
 	
-var flag=0;
-await User.findOne({email:req.body.email},function(err,user) {
-	if(user)
-	{	
-		flag=1;
+// var flag=0;
+// await User.findOne({email:req.body.email},function(err,user) {
+// 	if(user)
+// 	{	
+// 		flag=1;
 		
-	}
-});
+// 	}
+// });
 
-if(flag==1)
-{console.log("user exists");res.render('register',{flag:1});}
+// if(flag==1)
+// {console.log("user exists");res.render('register',{flag:1});}
 
-else
+// else
 {
 try{
 	
