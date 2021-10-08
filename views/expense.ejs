@@ -61,6 +61,8 @@
 
 
 
+
+
 <h1>Add Expense</h1>
 
 <!-- onsubmit="return validateForm()"  -->
@@ -92,12 +94,13 @@
 
 </body>       
 <script>
-  let data ='<%-JSON.stringify(data)%>';
-  data =JSON.parse(data);
-  var current_id= data.id;
 
 
     $(document).ready(function() {
+      let data ='<%-JSON.stringify(data)%>';
+  data =JSON.parse(data);
+  var current_id= data.id;
+
 
 var container= $(document.createElement('div'));
 
