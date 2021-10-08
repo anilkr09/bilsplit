@@ -129,7 +129,7 @@ var div1 = document.createElement('div');
 $(div1).append('<label>sharepaid:</label>');
 $(div1).append('<input type="text" name="sharepaid" id="name" Required>');
 var list1 = $(document.createElement('datalist')).attr('id','useroptions');
-
+if(data.users)
 data.users.forEach((item)=>{
 
   $(list1).append( '<option value="'+item.user_id+'"> '+ item.name +'---'+item.email+'</option>' );
@@ -180,7 +180,7 @@ $('#main').append(container);
 
 
 
-
+                
 
 
                 $(container).append(div1);
