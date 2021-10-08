@@ -16,6 +16,7 @@ const methodOverride = require('method-override')
 const flash = require('express-flash')
 app.use(flash());
 const session =  require('express-session')
+
 //passport-config use np
 var initialize = require('./passport-config');
 initialize();
@@ -23,9 +24,10 @@ initialize();
 app.use(express.static('public'));
 app.use(express.urlencoded({extended:false}))
 
+// app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
 
 app.use(session({
-secret : process.env.SESSION_SECRET,
+secret : "keyboard cat",
 resave :false,
 saveUninitialized:false
 }	
