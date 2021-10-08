@@ -1,8 +1,10 @@
 const mongoose = require('mongoose')
 var findOrCreate = require('mongoose-findorcreate')
 
-mongoose.connect('mongodb://localhost/test', {useNewUrlParser: true});
-
+mongoose.connect(process.env.MONGODB_URI ||'mongodb://localhost/test',{
+	useNewUrlParser:true,
+	useUnifiedTopology:true
+});
 
 const userSchema = new mongoose.Schema({
 	id:Number,

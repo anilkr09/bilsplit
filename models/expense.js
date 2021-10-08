@@ -1,5 +1,8 @@
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/test', {useNewUrlParser: true});
+mongoose.connect(process.env.MONGODB_URI ||'mongodb://localhost/test',{
+	useNewUrlParser:true,
+	useUnifiedTopology:true
+});
 const expenseSchema = new mongoose.Schema({
         name:String,
         amount:Number,
