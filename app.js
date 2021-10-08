@@ -8,7 +8,7 @@ const passport =  require('passport')
 
 const mongoose = require('mongoose')
 // mongoose.connect('mongodb://localhost/test', {useNewUrlParser: true});
-mongoose.connect(pocess.env.MONGODB_URI ||'mongodb://localhost/test',{
+mongoose.connect(process.env.MONGODB_URI ||'mongodb://localhost/test',{
 	useNewUrlParser:true,
 	useUnifiedTopology:true
 })
