@@ -80,9 +80,10 @@
 
 </body>       
 <script>
-  let data ='<%-JSON.stringify(data)%>';
-  data =JSON.parse(data);
+ 
     $(document).ready(function() {
+      let data ='<%-JSON.stringify(data)%>';
+  data =JSON.parse(data);
         // var iCnt = 0;
         $('#btAdd').click(function() {
 
@@ -110,7 +111,7 @@
             //     $(div1).append('<input type="text" name="sharepaid" id="name">');
 
                 // var list1 = $(document.createElement('datalist')).attr('id','useroptions');
-
+                if(data.users)
                 data.users.forEach((item)=>{
 
                   $(select).append( '<option value="'+item._id+'"> '+ item.name +'---'+item.email+'</option>' );
