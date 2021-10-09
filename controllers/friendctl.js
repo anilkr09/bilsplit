@@ -44,6 +44,7 @@ exports.friendpost = async function(req,res){
 
        var  friendList = current_user_doc.friendList;
         var flag=0;
+        if(friendList)
         for(var j=0;j<friendList.length;j++)
         {
         if(friendList[j].user_id==newfriendlist[i])
