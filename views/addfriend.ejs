@@ -21,7 +21,7 @@
     </style>
   </head>
   <body>  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">splitwise</a>
+    <a class="navbar-brand" href="#">splitx</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -66,17 +66,12 @@
     
      <input type="button" id="btAdd" value="ADD USER" class="bt" />
 
-   <!-- <input type="button" id="btRemove" value="REMOVE USER" class="bt" />
-    <p>Name:<input type="text" name="name"/></p>
-    <p> Total Expense:<input type="text" name="expense"/></p> -->
 </div>
 </br>
 <button type="submit">Submit</button>
 </form>
 
-<!-- <form action="/logout?_method=DELETE" method ="POST">
-<button type ="submit">Log Out </button>
-</form> -->
+
 
 </body>       
 <script>
@@ -84,34 +79,17 @@
     $(document).ready(function() {
       let data ='<%-JSON.stringify(data)%>';
   data =JSON.parse(data);
-        // var iCnt = 0;
+        
         $('#btAdd').click(function() {
 
-          
-            //  if (iCnt <= 19) {
-
-            //     iCnt = iCnt + 1;
-
-            //      var container= $(document.createElement('div')).attr('id', 'divid'+iCnt);
+        
                       
               
                 var div1 = document.createElement('div');
-                // $(container).append("<h4 >User"+iCnt + "</h4>");
                 $(div1).append('<label for="users">User</label>');
-                // $(div1).append('<input type="text" name="userid" list="useroptions" required>');
-                // $(div1).append('<select>');
-                // $(container).append(div1);
-                var select = document.createElement('select').attr('id','userid');
-                
-            //     var div1 = document.createElement('div');
-            //     $(div1).append('<label>shareamount:</label>');
-            //     $(div1).append('<input type="text" name="shareamount" id="name">');
-            //     $(container).append(div1);
-            //    var div1 = document.createElement('div');
-            //     $(div1).append('<label>sharepaid:</label>');
-            //     $(div1).append('<input type="text" name="sharepaid" id="name">');
-
-                // var list1 = $(document.createElement('datalist')).attr('id','useroptions');
+              
+                var select = $(document.createElement('select')).attr('name','userid');
+     
                 if(data.users)
                 data.users.forEach((item)=>{
 
@@ -120,24 +98,19 @@
                 }
                 )
 
-                // $(div1).append(list1);
+          
 
 
                 $(div1).append(select);
 
 
 
-
-                // $(container).append(div1);
-
                  $('#main').append(div1);
-            // }
+     
         
         });
       
-        // $('#btRemove').click(function() {
-        //     if (iCnt != 0) { $('#divid' + iCnt).remove(); iCnt = iCnt - 1; }
-        // });
+       
     });
     
 

@@ -7,27 +7,10 @@ const bcrypt = require('bcrypt');
 exports.register_post  =  async function (req,res) {
 
 
-	
-// var flag=0;
-// await User.findOne({email:req.body.email},function(err,user) {
-// 	if(user)
-// 	{	
-// 		flag=1;
-		
-// 	}
-// });
-
-// if(flag==1)
-// {console.log("user exists");res.render('register',{flag:1});}
-
-// else
 {
 try{
 	
 const hashedPassword  = await bcrypt.hash(req.body.password,10)
-
-//insert user inside database
-
 
 
 var newuser = new User(

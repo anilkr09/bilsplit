@@ -4,7 +4,7 @@ var User = require('../models/user');
 
 exports.friendpost = async function(req,res){
 
-    console.log(req.user.name);
+    // console.log(req.user.name);
   
     var req_obj=req.body;
   
@@ -15,7 +15,8 @@ exports.friendpost = async function(req,res){
    
     const current_user_doc = await User.findById(userid);
 
-
+    current_user_info ={'name':current_user_doc.name,'email':current_user_doc.email,'user_id':current_user_doc._id};
+    var friend_user_doc;
  
     
     var newfriends =req_obj.userid;
@@ -39,7 +40,6 @@ exports.friendpost = async function(req,res){
 
 
 
-   //here add logic for user exists already as firend
     
 
        var  friendList = current_user_doc.friendList;
@@ -50,6 +50,8 @@ exports.friendpost = async function(req,res){
         if(friendList[j].user_id==newfriendlist[i])
         { flag=1;break;}
         }
+        if(newfriendlist[i]==current_user_doc._id)
+        flag=1;
         if(flag==1)
         { console.log("friend already exists");
         }
@@ -58,7 +60,7 @@ exports.friendpost = async function(req,res){
         
         var temp_obj ={};
         
-        await User.findById(newfriendlist[i],{email:1,name:1}, function(err,user){
+        friend_user_doc = await User.findById(newfriendlist[i], function(err,user){
             
             temp_obj.name = user.name;
             temp_obj.email=user.email;
@@ -66,9 +68,10 @@ exports.friendpost = async function(req,res){
             
 
         });
+        friend_user_doc.friendList.push(current_user_info);
  
         
-        
+        await friend_user_doc.save();
 
         temp_obj.user_id = (newfriendlist[i]);
        
